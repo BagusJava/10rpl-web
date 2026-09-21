@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil Biodata</title>
+    <style>
+        /* Mengatur font, padding, dan warna latar belakang abu-abu terang */
+        body { font-family: Arial; padding: 20px; background: #f4f4f9; }
+        
+        /* Mengatur kotak putih tengah (container) dengan lebar maks 500px dan sudut melengkung */
+        .container { max-width: 500px; background: #fff; padding: 20px; border-radius: 8px; margin: auto; }
+    </style>
+</head>
+<body>
+    <!-- Kotak pembungkus halaman hasil -->
+    <div class="container">
+        <h2>Data Berhasil Disimpan</h2>
+        
+        <!-- Elemen kosong tempat data biodata akan dimunculkan oleh JavaScript -->
+        <div id="hasil"></div>
+        
+        <br>
+        <!-- Tombol/Link untuk kembali ke halaman form pengisian awal -->
+        <a href="10rpl_form_biodata.html">Kembali ke Form</a>
+    </div>
+    
+    <script>
+        // Mengambil data teks dari memori browser (LocalStorage) dan mengubahnya kembali menjadi objek JavaScript
+        const data = JSON.parse(localStorage.getItem('biodata'));
+        
+        // Mengecek jika data tersebut ada, lalu menampilkannya ke dalam div ber-id 'hasil' menggunakan template literal
+        if(data) {
+            document.getElementById('hasil').innerHTML = `
+                <p><b>Nama:</b> ${data.nama}</p>
+                <p><b>Alamat:</b> ${data.alamat}</p>
+                <p><b>Jurusan:</b> ${data.jurusan}</p>
+                <p><b>Jenis Kelamin:</b> ${data.jk}</p>
+                <p><b>Tinggi Badan:</b> ${data.tinggi} cm</p>
+                <p><b>Berat Badan:</b> ${data.berat} kg</p>
+                <p><b>Hobi:</b> ${data.hobi}</p>
+                <p><b>No. HP:</b> ${data.hp}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

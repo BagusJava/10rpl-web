@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Biodata</title>
+    <style>
+        /* Mengatur font dasar dan latar belakang halaman */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        
+        /* Mengatur kotak putih tengah (container) dengan bayangan halus */
+        .container { max-width: 500px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin: auto; }
+        
+        /* Memberi jarak bawah pada setiap kelompok elemen form */
+        .form-group { margin-bottom: 15px; }
+        
+        /* Membuat label tampil tebal di atas kolom isian */
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        
+        /* Membuat input, textarea, dan select selebar penuh dengan border rapi */
+        input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* Styling tombol simpan berwarna biru */
+        button { width: 100%; background-color: #007BFF; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <!-- Kotak pembungkus form -->
+    <div class="container">
+        <h2><text style="font-weight: bold;">BIODATA</text></h2>
+        
+        <!-- Form utama -->
+        <form id="biodataForm">
+            <!-- Input Nama -->
+            <div class="form-group"><label>Nama:</label><input type="text" id="nama" required></div>
+            
+            <!-- Input Alamat -->
+            <div class="form-group"><label>Alamat:</label><textarea id="alamat" required></textarea></div>
+            
+            <!-- Pilihan Jurusan -->
+            <div class="form-group"><label>Jurusan:</label>
+                <select id="jurusan" required>
+                    <option value="RPL">RPL</option><option value="TKJ">TKJ</option>
+                    <option value="TKR">TKR</option><option value="TSM">TSM</option><option value="TEI">TEI</option>
+                </select>
+            </div>
+            
+            <!-- Pilihan Jenis Kelamin (Radio Button) -->
+            <div class="form-group"><label>Jenis Kelamin:</label>
+                <input type="radio" name="jk" value="Laki-laki" checked> Laki-laki
+                <input type="radio" name="jk" value="Perempuan"> Perempuan
+                <input type="radio" name="jk" value="Boti"> Boti
+            </div>
+            
+            <!-- Input Tinggi Badan -->
+            <div class="form-group"><label>Tinggi Badan (cm):</label><input type="number" id="tinggi" step="any" required></div>
+            
+            <!-- Input Berat Badan -->
+            <div class="form-group"><label>Berat Badan (kg):</label><input type="number" id="berat" step="any" required></div>
+            
+            <!-- Input Hobi -->
+            <div class="form-group"><label>Hobi:</label><input type="text" id="hobi" required></div>
+            
+            <!-- Input Nomor HP -->
+            <div class="form-group"><label>No. HP:</label><input type="number" id="hp" maxlength="13" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 13);" required></div>
+            
+            <!-- Tombol untuk menjalankan fungsi JavaScript -->
+            <button type="button" onclick="simpanDanPindah()">Simpan</button>
+        </form>
+    </div>
+
+    <script>
+        // Fungsi yang berjalan saat tombol Simpan diklik
+        function simpanDanPindah() {
+            // Mengambil data dari setiap input form dan menyimpannya ke dalam objek JavaScript
+            const data = {
+                nama: document.getElementById('nama').value,
+                alamat: document.getElementById('alamat').value,
+                jurusan: document.getElementById('jurusan').value,
+                jk: document.querySelector('input[name="jk"]:checked').value,
+                tinggi: document.getElementById('tinggi').value,
+                berat: document.getElementById('berat').value,
+                hobi: document.getElementById('hobi').value,
+                hp: document.getElementById('hp').value
+            };
+            
+            // Mengubah objek data menjadi string JSON dan menyimpannya ke memori browser (LocalStorage)
+            localStorage.setItem('biodata', JSON.stringify(data));
+            
+            // Berpindah otomatis ke halaman hasil biodata
+            window.location.href = '10rpl_hasil_biodata.html';
+        }
+    </script>
+</body>
+</html>
