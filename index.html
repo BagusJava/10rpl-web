@@ -475,16 +475,6 @@
       </footer>
     </div>
 
-    <!-- Floating Dock: View 3 Files & Export Code -->
-    <div class="code-export-dock">
-      <button class="btn-dock" id="openCodeInspectorBtn" type="button" title="View separated index.html, style.css, script.js">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </svg>
-        <span>Export 3 Files (HTML / CSS / JS)</span>
-      </button>
-    </div>
 
     <!-- =====================================================================
          Interactive Modals
@@ -584,60 +574,7 @@
       </div>
     </div>
 
-    <!-- Code Inspector Modal (Export 3 Files) -->
-    <div class="modal-overlay" id="codeInspectorModal" role="dialog" aria-modal="true" aria-labelledby="codeInspectorModalTitle">
-      <div class="modal-content" style="max-width:760px;">
-        <div class="modal-header">
-          <div class="modal-title" id="codeInspectorModalTitle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="16 18 22 12 16 6"></polyline>
-              <polyline points="8 6 2 12 8 18"></polyline>
-            </svg>
-            <span>Clean 3-File Architecture (index.html, style.css, script.js)</span>
-          </div>
-          <button class="modal-close-btn" data-close-modal aria-label="Close modal">&times;</button>
-        </div>
 
-        <nav class="code-tabs-nav" aria-label="Code File Tabs">
-          <button class="code-tab-btn active" data-target="paneHtml" type="button">index.html</button>
-          <button class="code-tab-btn" data-target="paneCss" type="button">style.css</button>
-          <button class="code-tab-btn" data-target="paneJs" type="button">script.js</button>
-        </nav>
-
-        <div class="modal-body" style="padding:0;">
-          <!-- HTML Pane -->
-          <div class="code-pane active" id="paneHtml">
-            <div class="code-toolbar">
-              <button class="btn-copy-code" data-code="codeHtmlPre" type="button">Copy index.html</button>
-            </div>
-            <pre class="code-pre" id="codeHtmlPre">Loading index.html...</pre>
-          </div>
-
-          <!-- CSS Pane -->
-          <div class="code-pane" id="paneCss">
-            <div class="code-toolbar">
-              <button class="btn-copy-code" data-code="codeCssPre" type="button">Copy style.css</button>
-            </div>
-            <pre class="code-pre" id="codeCssPre">Loading style.css...</pre>
-          </div>
-
-          <!-- JS Pane -->
-          <div class="code-pane" id="paneJs">
-            <div class="code-toolbar">
-              <button class="btn-copy-code" data-code="codeJsPre" type="button">Copy script.js</button>
-            </div>
-            <pre class="code-pre" id="codeJsPre">Loading script.js...</pre>
-          </div>
-        </div>
-
-        <div style="padding:0.85rem 1.25rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;background:#060911;">
-          <span style="font-size:0.75rem;color:var(--text-muted);font-family:var(--font-mono);">3 standalone production-ready files</span>
-          <button class="dispatch-submit-btn" id="downloadAllFilesBtn" type="button" style="padding:0.45rem 1rem;font-size:0.75rem;">
-            Download All 3 Files (.html, .css, .js)
-          </button>
-        </div>
-      </div>
-    </div>
 
     <!-- Standalone Script File -->
     <script type="module" src="./script.js"></script>
